@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+APP_ROOT = File.expand_path("../../",  __FILE__)
+
+Dir.chdir(APP_ROOT) do
+  FileUtils.cp ".env.example", ".env" unless File.exist?(".env")
+
+  puts "== Installing dependencies =="
+  system "bundle"
+
+  puts "== Creating database =="
+  system "createdb app_prototype_development || true"
+
+  puts "== Migrating database =="
+  system "bundle exec rake db:migrate"
+end
+
