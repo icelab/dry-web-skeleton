@@ -1,0 +1,3 @@
+AppPrototype::Container.namespace "transactions" do |container|
+  # ...
+end

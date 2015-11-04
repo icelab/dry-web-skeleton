@@ -1,2 +1,2 @@
-require "./app_prototype"
-run AppPrototype.freeze.app
+require_relative "core/environment"
+run AppPrototype::Application.freeze.app

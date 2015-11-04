@@ -1,15 +1,15 @@
-require "./app_prototype"
-require "rom/sql/rake_task"
-require "rspec/core/rake_task"
-require "sequel"
+require_relative "core/environment"
 
-# Add `rake spec` task and make it default
+# Add `spec` task and make it default
+require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
+require "rom/sql/rake_task"
+require "sequel"
 namespace :db do
   task :setup do
-    ROM.setup(:sql, ENV["DATABASE_URL"])
+    Readings::Container["persistence.rom"]
   end
 
   # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560

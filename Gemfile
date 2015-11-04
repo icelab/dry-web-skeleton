@@ -4,12 +4,10 @@ ruby "2.2.3"
 
 # Web framework
 gem "puma"
-gem "roda"
-gem "roda-flow"
+gem "rodakase", git: "git@github.com:solnic/rodakase.git"
 gem "shotgun"
 
 # Database persistence
-# Tracking master due to unreleased fixes for issues with rom-repository: https://github.com/rom-rb/rom-repository/issues/2
 gem "pg"
 gem "rom", git: "git@github.com:rom-rb/rom.git"
 gem "rom-mapper", git: "git@github.com:rom-rb/rom-mapper.git"
@@ -18,23 +16,27 @@ gem "rom-sql", git: "git@github.com:rom-rb/rom-sql.git"
 gem "rom-support", git: "git@github.com:rom-rb/rom-support.git"
 
 # Application dependencies
-gem "activesupport", require: false # inflection & some core extensions
-gem "bcrypt"
-gem "call_sheet", git: "git@github.com:icelab/call_sheet"
+gem "activesupport" # inflection & some core extensions
+gem "call_sheet", "~> 0.2.0"
 gem "dotenv"
-gem "dry-data", require: "dry/data"
+gem "dry-data"
+gem "memoit"
+gem "rom-model", git: "git@github.com:rom-rb/rom-model.git"
 gem "slim"
 gem "transproc", git: "git@github.com:solnic/transproc.git"
 
 group :development, :test do
   gem "guard-rspec", require: false
   gem "pry-byebug"
-  gem "sqlite3"
+end
+
+group :development do
+  gem "foreman"
 end
 
 group :test do
-  gem "capybara"
-  gem "capybara-screenshot"
+  gem "capybara", require: false
+  gem "capybara-screenshot", require: false
   gem "database_cleaner"
   gem "rspec"
   gem "site_prism"

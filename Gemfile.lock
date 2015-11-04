@@ -1,18 +1,21 @@
 GIT
-  remote: git@github.com:icelab/call_sheet
-  revision: b251adbe1c8c43a79b33cab26614c6fb2c091a0b
-  specs:
-    call_sheet (0.1.0)
-      deterministic (>= 0.15.3)
-      wisper (>= 1.6.0)
-
-GIT
   remote: git@github.com:rom-rb/rom-mapper.git
   revision: e07b7f5a89f0b57fcfe076f45ed729dec9e626ff
   specs:
     rom-mapper (0.3.0.beta1)
       equalizer (~> 0.0, >= 0.0.10)
       rom-support (~> 1.0.0.beta1)
+
+GIT
+  remote: git@github.com:rom-rb/rom-model.git
+  revision: 59ec015a7bed9a61eae1cd3d49b4de84513c95a4
+  specs:
+    rom-model (0.2.0.beta1)
+      activemodel (>= 3.0, < 5.0)
+      charlatan (~> 0.1)
+      i18n
+      rom-support (~> 1.0.0.beta1)
+      virtus (~> 1.0, >= 1.0.5)
 
 GIT
   remote: git@github.com:rom-rb/rom-repository.git
@@ -50,6 +53,17 @@ GIT
       rom-support (~> 1.0.0.beta1)
 
 GIT
+  remote: git@github.com:solnic/rodakase.git
+  revision: 40b120bd335b05e76d5e7521a144adeccb99bffe
+  specs:
+    rodakase (0.0.1)
+      dry-auto_inject
+      dry-container
+      inflecto
+      roda
+      tilt
+
+GIT
   remote: git@github.com:solnic/transproc.git
   revision: 86c8b3af719fc0358dc253615b3aa10f604e19bd
   specs:
@@ -59,6 +73,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     abstract_type (0.0.7)
+    activemodel (4.2.4)
+      activesupport (= 4.2.4)
+      builder (~> 3.1)
     activesupport (4.2.4)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -73,9 +90,16 @@ GEM
       abstract_type (~> 0.0.7)
       adamantium (~> 0.2)
       equalizer (~> 0.0.11)
-    bcrypt (3.1.10)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    call_sheet (0.2.0)
+      deterministic (>= 0.15.3)
+      wisper (>= 1.6.0)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -85,12 +109,18 @@ GEM
     capybara-screenshot (1.0.11)
       capybara (>= 1.0, < 3)
       launchy
+    charlatan (0.1.0)
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     columnize (0.9.0)
     database_cleaner (1.5.1)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     deterministic (0.15.3)
     diff-lcs (1.2.5)
     dotenv (2.0.2)
+    dry-auto_inject (0.0.1)
     dry-configurable (0.1.2)
       thread_safe
     dry-container (0.2.4)
@@ -102,6 +132,8 @@ GEM
       kleisli (~> 0.2)
     equalizer (0.0.11)
     ffi (1.9.10)
+    foreman (0.78.0)
+      thor (~> 0.19.1)
     formatador (0.2.5)
     guard (2.13.0)
       formatador (>= 0.2.4)
@@ -128,6 +160,7 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
+    memoit (0.3.0)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
@@ -157,11 +190,6 @@ GEM
       ffi (>= 0.5.0)
     roda (2.7.0)
       rack
-    roda-container (0.1.1)
-      dry-container
-    roda-flow (0.2.0)
-      dry-container (~> 0.2.4)
-      roda-container
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -186,13 +214,17 @@ GEM
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
-    sqlite3 (1.3.11)
     temple (0.7.6)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     wisper (1.6.1)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -202,21 +234,22 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  bcrypt
-  call_sheet!
+  call_sheet (~> 0.2.0)
   capybara
   capybara-screenshot
   database_cleaner
   dotenv
   dry-data
+  foreman
   guard-rspec
+  memoit
   pg
   pry-byebug
   puma
-  roda
-  roda-flow
+  rodakase!
   rom!
   rom-mapper!
+  rom-model!
   rom-repository!
   rom-sql!
   rom-support!
@@ -224,7 +257,6 @@ DEPENDENCIES
   shotgun
   site_prism
   slim
-  sqlite3
   transproc!
 
 BUNDLED WITH
