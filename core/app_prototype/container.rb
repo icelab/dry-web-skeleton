@@ -7,5 +7,6 @@ module AppPrototype
 
     $LOAD_PATH.unshift(root.join("lib").to_s)
     $LOAD_PATH.unshift(root.join("core").to_s)
+    $LOAD_PATH.unshift(root.join("vendor").to_s)
   end
 end

@@ -14,6 +14,10 @@ module AppPrototype
     plugin :render, engine: "html.slim", layout: "layouts/public"
     plugin :partials, views: "views"
 
+    plugin :webpack_assets,
+      precompiled: (ENV["RACK_ENV"] == "production"),
+      development_server_base_url: "http://#{ENV['WEBPACK_ASSETS_DEVELOPMENT_HOST']}:#{ENV['WEBPACK_ASSETS_DEVELOPMENT_PORT']}"
+
     route do |r|
       # TODO: home route and controller
 
