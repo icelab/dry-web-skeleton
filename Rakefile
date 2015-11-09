@@ -1,20 +1,24 @@
-require_relative "core/environment"
+require "bundler"
+Bundler.setup
 
-# Add `spec` task and make it default
+env = ENV.fetch("RACK_ENV", :development).to_sym
+require_relative "core/app_prototype/container"
+AppPrototype::Container.configure(env) { |c| c }
+
 require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
-task :default => :spec
+task default: [:spec]
 
 require "rom/sql/rake_task"
 require "sequel"
 namespace :db do
   task :setup do
-    Readings::Container["persistence.rom"]
+    AppPrototype::Container["persistence.setup"]
   end
 
   # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560
   Sequel.extension :migration
-  DB = Sequel.connect(ENV["DATABASE_URL"])
+  DB = Sequel.connect(AppPrototype::Container.config.app.database_url)
 
   desc "Prints current schema version"
   task :version do

@@ -5,10 +5,11 @@ require "fileutils"
 APP_ROOT = File.expand_path("../../",  __FILE__)
 
 Dir.chdir(APP_ROOT) do
-  FileUtils.cp ".env.example", ".env" unless File.exist?(".env")
-
   puts "== Installing dependencies =="
   system "bundle"
+
+  puts "== Initializing config =="
+  FileUtils.cp "config/application.example.yml", "config/application.yml" unless File.exist?("config/application.yml")
 
   puts "== Creating database =="
   system "createdb app_prototype_development || true"

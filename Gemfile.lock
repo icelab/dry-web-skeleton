@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@github.com:rom-rb/rom-model.git
-  revision: 59ec015a7bed9a61eae1cd3d49b4de84513c95a4
+  revision: e4ecd669e1c611d6b5413ba35eef3c35c0e445ad
   specs:
     rom-model (0.2.0.beta1)
       activemodel (>= 3.0, < 5.0)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git@github.com:rom-rb/rom-sql.git
-  revision: 4aef266522c1ab95e2fbe91272af240b363507ce
+  revision: 0a17586961eb2d02d74e4b34d31f64ce3bf99d66
   specs:
     rom-sql (0.7.0.beta1)
       equalizer (~> 0.0, >= 0.0.9)
@@ -38,9 +38,10 @@ GIT
 
 GIT
   remote: git@github.com:rom-rb/rom-support.git
-  revision: f232fa7f43d623e286a5096c6aedad6ecf53c609
+  revision: c0bdb013b1c4546038db4bec501303bf16eb42ad
   specs:
     rom-support (1.0.0.beta1)
+      transproc (~> 0.4.0)
       wisper (~> 1.6, >= 1.6.0)
 
 GIT
@@ -54,7 +55,7 @@ GIT
 
 GIT
   remote: git@github.com:solnic/rodakase.git
-  revision: 40b120bd335b05e76d5e7521a144adeccb99bffe
+  revision: 3641a9dbda4fe21e1f5e3d69d95a7b4ea069e307
   specs:
     rodakase (0.0.1)
       dry-auto_inject
@@ -62,6 +63,7 @@ GIT
       inflecto
       roda
       tilt
+      transflow
 
 GIT
   remote: git@github.com:solnic/transproc.git
@@ -119,7 +121,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     deterministic (0.15.3)
     diff-lcs (1.2.5)
-    dotenv (2.0.2)
     dry-auto_inject (0.0.1)
     dry-configurable (0.1.2)
       thread_safe
@@ -130,6 +131,7 @@ GEM
       dry-container (~> 0.2)
       inflecto (~> 0.0.0, >= 0.0.2)
       kleisli (~> 0.2)
+    dry-pipeline (0.0.1)
     equalizer (0.0.11)
     ffi (1.9.10)
     foreman (0.78.0)
@@ -203,7 +205,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    sequel (4.27.0)
+    sequel (4.28.0)
     shellany (0.0.1)
     shotgun (0.9.1)
       rack (>= 1.0)
@@ -218,6 +220,10 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    transflow (0.3.0)
+      dry-pipeline
+      kleisli
+      wisper
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     virtus (1.0.5)
@@ -238,7 +244,6 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   database_cleaner
-  dotenv
   dry-data
   foreman
   guard-rspec
