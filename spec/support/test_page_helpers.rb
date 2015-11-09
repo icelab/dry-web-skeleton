@@ -1,7 +1,8 @@
+require "site_prism"
 require "active_support/core_ext/class/subclasses"
 
 # Load all the page classes
-Dir["#{File.dirname(__FILE__)}/../pages/*.rb"].each(&method(:require))
+Dir[SPEC_ROOT.join("pages/**/*.rb").to_s].each(&method(:require))
 
 # Add a helper method for accessing each page class, with a name to match. A
 # `_page` suffix is added for clarity, and to avoid name collisions, e.g.
