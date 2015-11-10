@@ -13,8 +13,10 @@ Dir.chdir(APP_ROOT) do
 
   puts "== Creating database =="
   system "createdb app_prototype_development || true"
+  system "createdb app_prototype_test || true"
 
   puts "== Migrating database =="
-  system "bundle exec rake db:migrate"
+  system "RACK_ENV=development bundle exec rake db:migrate"
+  system "RACK_ENV=test bundle exec rake db:migrate"
 end
 
