@@ -5,6 +5,8 @@ module Main
   class Application < Rodakase::Application
     setting :container, Container
 
+    opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
+
     use Rack::Session::Cookie, key: "app_prototype.session", secret: Container.config.app.session_secret
 
     plugin :path
