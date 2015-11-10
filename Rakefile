@@ -13,7 +13,7 @@ require "rom/sql/rake_task"
 require "sequel"
 namespace :db do
   task :setup do
-    AppPrototype::Container["persistence.setup"]
+    AppPrototype::Container["persistence.rom"]
   end
 
   # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560

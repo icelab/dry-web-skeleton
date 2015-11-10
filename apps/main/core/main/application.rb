@@ -1,7 +1,7 @@
 require "rodakase/application"
 require_relative "container"
 
-module AppPrototype
+module Main
   class Application < Rodakase::Application
     setting :container, Container
 
