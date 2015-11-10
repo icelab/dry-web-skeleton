@@ -1,5 +1,8 @@
 ENV["RACK_ENV"] = "test"
 
+require "capybara/rspec"
+require "capybara-screenshot/rspec"
+require "database_cleaner"
 require "pry-byebug"
 
 Dir[SPEC_ROOT.join("support/*.rb").to_s].each(&method(:require))
@@ -7,8 +10,7 @@ Dir[SPEC_ROOT.join("shared/*.rb").to_s].each(&method(:require))
 
 require SPEC_ROOT.join("../core/boot").realpath.to_s
 
-require "capybara/rspec"
-require "capybara-screenshot/rspec"
+
 Capybara.app = AppPrototype::Application.app
 Capybara.save_and_open_page_path = "tmp/capybara-screenshot"
 

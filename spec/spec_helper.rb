@@ -1,3 +1,5 @@
+SPEC_ROOT = Pathname(__FILE__).dirname
+
 RSpec.configure do |config|
   config.disable_monkey_patching!
 
