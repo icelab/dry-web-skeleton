@@ -2,11 +2,11 @@ module TestHelpers
   module_function
 
   def container
-    AppPrototype::Application
+    AppPrototype::Container
   end
 
   def app
-    AppPrototype::Application.app
+    Main::Application.app
   end
 
   def rom

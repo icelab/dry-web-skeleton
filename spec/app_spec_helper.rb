@@ -11,7 +11,7 @@ Dir[SPEC_ROOT.join("shared/*.rb").to_s].each(&method(:require))
 require SPEC_ROOT.join("../core/boot").realpath.to_s
 
 
-Capybara.app = AppPrototype::Application.app
+Capybara.app = Main::Application.app
 Capybara.save_and_open_page_path = "tmp/capybara-screenshot"
 
 require "database_cleaner"
@@ -24,7 +24,7 @@ RSpec.configure do |config|
 
   config.before :suite do
     DatabaseCleaner.clean_with :truncation
-    AppPrototype::Application.freeze
+    Main::Application.freeze
   end
 
   config.around :each do |example|
