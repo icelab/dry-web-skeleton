@@ -1,5 +1,22 @@
 GIT
-  remote: git@github.com:rom-rb/rom-mapper.git
+  remote: https://github.com/icelab/call_sheet
+  revision: face0888b385af571d50a9bf8aa2f25be4be2c6a
+  specs:
+    call_sheet (0.3.2)
+      kleisli
+      wisper (>= 1.6.0)
+
+GIT
+  remote: https://github.com/rom-rb/rom
+  revision: 82a438f8427991af38ec9e9e516ff627068969cc
+  specs:
+    rom (1.0.0.beta1)
+      equalizer (~> 0.0, >= 0.0.9)
+      rom-mapper (~> 0.3.0.beta1)
+      rom-support (~> 1.0.0.beta1)
+
+GIT
+  remote: https://github.com/rom-rb/rom-mapper
   revision: e07b7f5a89f0b57fcfe076f45ed729dec9e626ff
   specs:
     rom-mapper (0.3.0.beta1)
@@ -7,7 +24,7 @@ GIT
       rom-support (~> 1.0.0.beta1)
 
 GIT
-  remote: git@github.com:rom-rb/rom-model.git
+  remote: https://github.com/rom-rb/rom-model
   revision: e4ecd669e1c611d6b5413ba35eef3c35c0e445ad
   specs:
     rom-model (0.2.0.beta1)
@@ -18,7 +35,7 @@ GIT
       virtus (~> 1.0, >= 1.0.5)
 
 GIT
-  remote: git@github.com:rom-rb/rom-repository.git
+  remote: https://github.com/rom-rb/rom-repository
   revision: 306bcc46dbd07e1332bc7236372f81bab3f1dfa5
   specs:
     rom-repository (0.2.0.beta1)
@@ -28,7 +45,7 @@ GIT
       rom-support (~> 1.0.0.beta1)
 
 GIT
-  remote: git@github.com:rom-rb/rom-sql.git
+  remote: https://github.com/rom-rb/rom-sql
   revision: 0a17586961eb2d02d74e4b34d31f64ce3bf99d66
   specs:
     rom-sql (0.7.0.beta1)
@@ -37,7 +54,7 @@ GIT
       sequel (~> 4.18)
 
 GIT
-  remote: git@github.com:rom-rb/rom-support.git
+  remote: https://github.com/rom-rb/rom-support
   revision: c0bdb013b1c4546038db4bec501303bf16eb42ad
   specs:
     rom-support (1.0.0.beta1)
@@ -45,29 +62,22 @@ GIT
       wisper (~> 1.6, >= 1.6.0)
 
 GIT
-  remote: git@github.com:rom-rb/rom.git
-  revision: 82a438f8427991af38ec9e9e516ff627068969cc
-  specs:
-    rom (1.0.0.beta1)
-      equalizer (~> 0.0, >= 0.0.9)
-      rom-mapper (~> 0.3.0.beta1)
-      rom-support (~> 1.0.0.beta1)
-
-GIT
-  remote: git@github.com:solnic/rodakase.git
-  revision: 3641a9dbda4fe21e1f5e3d69d95a7b4ea069e307
+  remote: https://github.com/solnic/rodakase
+  revision: f2d61c850c54225b959cacc5b93ebb2599c09994
   specs:
     rodakase (0.0.1)
-      dry-auto_inject
-      dry-container
-      inflecto
-      roda
-      tilt
-      transflow
+      dry-auto_inject (~> 0.1)
+      dry-configurable (~> 0.1)
+      dry-container (~> 0.2)
+      dry-equalizer (~> 0.2)
+      inflecto (~> 0)
+      roda (~> 2.7)
+      tilt (~> 2.0)
+      transflow (~> 0.3)
 
 GIT
-  remote: git@github.com:solnic/transproc.git
-  revision: 86c8b3af719fc0358dc253615b3aa10f604e19bd
+  remote: https://github.com/solnic/transproc
+  revision: dcd3f83bda5607ebb6ddf1f5dfe648ac0cfb2f86
   specs:
     transproc (0.4.0)
 
@@ -75,10 +85,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     abstract_type (0.0.7)
-    activemodel (4.2.4)
-      activesupport (= 4.2.4)
+    activemodel (4.2.5)
+      activesupport (= 4.2.5)
       builder (~> 3.1)
-    activesupport (4.2.4)
+    activesupport (4.2.5)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -99,9 +109,6 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
-    call_sheet (0.2.0)
-      deterministic (>= 0.15.3)
-      wisper (>= 1.6.0)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -119,18 +126,18 @@ GEM
     database_cleaner (1.5.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    deterministic (0.15.3)
     diff-lcs (1.2.5)
-    dry-auto_inject (0.0.1)
+    dry-auto_inject (0.1.0)
     dry-configurable (0.1.2)
       thread_safe
-    dry-container (0.2.4)
+    dry-container (0.2.5)
       dry-configurable (= 0.1.2)
       thread_safe
     dry-data (0.0.1)
       dry-container (~> 0.2)
       inflecto (~> 0.0.0, >= 0.0.2)
       kleisli (~> 0.2)
+    dry-equalizer (0.2.0)
     dry-pipeline (0.0.1)
     equalizer (0.0.11)
     ffi (1.9.10)
@@ -188,7 +195,7 @@ GEM
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    roda (2.7.0)
+    roda (2.8.0)
       rack
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -237,8 +244,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
-  call_sheet (~> 0.2.0)
+  call_sheet!
   capybara
   capybara-screenshot
   database_cleaner

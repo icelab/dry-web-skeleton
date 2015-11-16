@@ -4,25 +4,24 @@ ruby "2.2.3"
 
 # Web framework
 gem "puma"
-gem "rodakase", git: "git@github.com:solnic/rodakase.git"
+gem "rodakase", git: "https://github.com/solnic/rodakase"
 gem "shotgun"
 
 # Database persistence
 gem "pg"
-gem "rom", git: "git@github.com:rom-rb/rom.git"
-gem "rom-mapper", git: "git@github.com:rom-rb/rom-mapper.git"
-gem "rom-repository", git: "git@github.com:rom-rb/rom-repository.git"
-gem "rom-sql", git: "git@github.com:rom-rb/rom-sql.git"
-gem "rom-support", git: "git@github.com:rom-rb/rom-support.git"
+gem "rom", git: "https://github.com/rom-rb/rom"
+gem "rom-mapper", git: "https://github.com/rom-rb/rom-mapper"
+gem "rom-repository", git: "https://github.com/rom-rb/rom-repository"
+gem "rom-sql", git: "https://github.com/rom-rb/rom-sql"
+gem "rom-support", git: "https://github.com/rom-rb/rom-support"
 
 # Application dependencies
-gem "activesupport" # inflection & some core extensions
-gem "call_sheet", "~> 0.2.0"
+gem "call_sheet", git: "https://github.com/icelab/call_sheet"
 gem "dry-data"
 gem "memoit"
-gem "rom-model", git: "git@github.com:rom-rb/rom-model.git"
+gem "rom-model", git: "https://github.com/rom-rb/rom-model"
 gem "slim"
-gem "transproc", git: "git@github.com:solnic/transproc.git"
+gem "transproc", git: "https://github.com/solnic/transproc"
 
 group :development, :test do
   gem "guard-rspec", require: false
