@@ -1,10 +1,14 @@
 module Main
-  class Container < AppPrototype::Container
+  class Container < Rodakase::Container
     setting :root, Pathname(__FILE__).join("../..").realpath.dirname.freeze
-    setting :auto_load, true
+    setting :auto_register, %w(
+      lib/operations
+      lib/validators
+      lib/views
+    )
 
-    $LOAD_PATH.unshift(root.join("app"))
-    $LOAD_PATH.unshift(root.join("core"))
-    $LOAD_PATH.unshift(root.join("lib"))
+    configure do
+      load_paths! "lib", "core"
+    end
   end
 end

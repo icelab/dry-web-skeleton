@@ -1,3 +1,0 @@
-AppPrototype::Container.namespace "validators" do |container|
-  # ...
-end

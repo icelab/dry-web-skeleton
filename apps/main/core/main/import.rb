@@ -1,7 +1,9 @@
-require "app_prototype/import"
+require_relative "container"
 
 module Main
+  Import = Main::Container.import_module
+
   def self.Import(*args)
-    AppPrototype::Import[*args]
+    Import[*args]
   end
 end

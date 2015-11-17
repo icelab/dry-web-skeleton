@@ -1,9 +1,7 @@
 require "bundler"
 Bundler.setup
 
-env = ENV.fetch("RACK_ENV", :development).to_sym
 require_relative "core/app_prototype/container"
-AppPrototype::Container.configure(env) { |c| c }
 
 require "rspec/core/rake_task"
 RSpec::Core::RakeTask.new(:spec)
@@ -13,7 +11,7 @@ require "rom/sql/rake_task"
 require "sequel"
 namespace :db do
   task :setup do
-    AppPrototype::Container["persistence.rom"]
+    AppPrototype::Container.boot!(:rom)
   end
 
   # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560

@@ -1,3 +1,0 @@
-AppPrototype::Container.namespace "transformations" do |container|
-  # ...
-end
