@@ -6,7 +6,7 @@ You can clone this skeleton using [Raygun](https://github.com/carbonfive/raygun)
 
 ```
 gem install raygun
-raygun -p icelab/rom-roda-skeleton your-app-name-here
+raygun -p icelab/rodakase-skeleton your-app-name
 ```
 
 ## Development
