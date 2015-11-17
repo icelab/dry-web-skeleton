@@ -250,6 +250,7 @@ DEPENDENCIES
   database_cleaner
   dry-data
   guard-rspec
+  inflecto
   memoit
   pg
   pry-byebug

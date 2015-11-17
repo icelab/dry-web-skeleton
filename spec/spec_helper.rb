@@ -1,4 +1,13 @@
+require "byebug"
+
+ENV["RACK_ENV"] = "test"
+
 SPEC_ROOT = Pathname(__FILE__).dirname
+
+Dir[SPEC_ROOT.join("support/*.rb").to_s].each(&method(:require))
+Dir[SPEC_ROOT.join("shared/*.rb").to_s].each(&method(:require))
+
+require SPEC_ROOT.join("../core/readings/container")
 
 RSpec.configure do |config|
   config.disable_monkey_patching!
@@ -36,7 +45,7 @@ RSpec.configure do |config|
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
     # (e.g. via a command-line flag).
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   # Print the 10 slowest examples and example groups at the end of the spec

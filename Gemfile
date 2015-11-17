@@ -32,6 +32,7 @@ group :test do
   gem "capybara", require: false
   gem "capybara-screenshot", require: false
   gem "database_cleaner"
+  gem "inflecto"
   gem "rspec"
   gem "site_prism"
 end
