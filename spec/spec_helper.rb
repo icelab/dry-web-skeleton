@@ -7,7 +7,7 @@ SPEC_ROOT = Pathname(__FILE__).dirname
 Dir[SPEC_ROOT.join("support/*.rb").to_s].each(&method(:require))
 Dir[SPEC_ROOT.join("shared/*.rb").to_s].each(&method(:require))
 
-require SPEC_ROOT.join("../core/readings/container")
+require SPEC_ROOT.join("../core/app_prototype/container")
 
 RSpec.configure do |config|
   config.disable_monkey_patching!
