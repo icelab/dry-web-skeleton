@@ -20,7 +20,6 @@ gem "call_sheet", git: "https://github.com/icelab/call_sheet"
 gem "dry-data", git: "https://github.com/dryrb/dry-data"
 gem "dry-validation", git: "https://github.com/dryrb/dry-validation"
 gem "memoit"
-gem "rom-model", git: "https://github.com/rom-rb/rom-model"
 gem "slim"
 gem "transproc", git: "https://github.com/solnic/transproc"
 
