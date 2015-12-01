@@ -11,9 +11,11 @@ module Main
       @flash_messages = {}
     end
 
-    def asset_path(name)
-      # TODO: integrate with Webpack
-      name
+    def assets
+      @assets ||= AppPrototype::Assets.new(
+        env: config.env,
+        root: config.root,
+        server_url: config.app.assets_server_url)
     end
   end
 end

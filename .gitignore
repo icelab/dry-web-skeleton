@@ -1,2 +1,13 @@
+# RSpec artifacts
 /spec/examples.txt
+
+# Local config
 /config/application.yml
+
+# Asset artifacts
+/assets/build
+/public/assets
+
+# Node
+/node_modules
+/npm-debug.log
