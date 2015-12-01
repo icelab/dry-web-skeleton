@@ -1,3 +1,5 @@
+require "app_prototype/assets"
+
 module Main
   # This is our main layout context that we inject into view
   #
