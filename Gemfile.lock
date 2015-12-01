@@ -1,4 +1,23 @@
 GIT
+  remote: https://github.com/dryrb/dry-data
+  revision: f19956a24b47b31fac4c53a7e320e5472224a251
+  specs:
+    dry-data (0.2.1)
+      dry-container (~> 0.2)
+      inflecto (~> 0.0.0, >= 0.0.2)
+      kleisli (~> 0.2)
+
+GIT
+  remote: https://github.com/dryrb/dry-validation
+  revision: 727c1fb5448c47c0fa7490559269dbd21fe6b1c5
+  specs:
+    dry-validation (0.2.0)
+      dry-configurable (~> 0.1)
+      dry-container (~> 0.2, >= 0.2.6)
+      dry-data (~> 0.2, >= 0.2.1)
+      dry-equalizer (~> 0.2)
+
+GIT
   remote: https://github.com/icelab/call_sheet
   revision: face0888b385af571d50a9bf8aa2f25be4be2c6a
   specs:
@@ -82,12 +101,6 @@ GIT
       tilt (~> 2.0)
       transflow (~> 0.3)
 
-GIT
-  remote: https://github.com/solnic/transproc
-  revision: dcd3f83bda5607ebb6ddf1f5dfe648ac0cfb2f86
-  specs:
-    transproc (0.4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -140,10 +153,6 @@ GEM
     dry-container (0.2.6)
       dry-configurable (= 0.1.2)
       thread_safe
-    dry-data (0.0.1)
-      dry-container (~> 0.2)
-      inflecto (~> 0.0.0, >= 0.0.2)
-      kleisli (~> 0.2)
     dry-equalizer (0.2.0)
     dry-pipeline (0.0.1)
     equalizer (0.0.11)
@@ -255,7 +264,8 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   database_cleaner
-  dry-data
+  dry-data!
+  dry-validation!
   guard-rspec
   inflecto
   memoit
