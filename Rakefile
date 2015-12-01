@@ -27,9 +27,27 @@ namespace :db do
     puts "Current schema version: #{version}"
   end
 
+  namespace :structure do
+    desc "Dump database structure to db/structure.sql"
+    task :dump do
+      require "uri"
+      uri = URI(DB.url)
+
+      dump = `pg_dump -h #{uri.hostname} -i -s -x -O #{uri.path.tr("/", "")}`
+      File.open "db/structure.sql", "w" do |file|
+        file.write dump
+      end
+    end
+  end
+
   desc "Perform migration up to latest migration available"
   task :migrate do
-    # The migrate task is provided by rom, but we can print the current version after it runs
+    # The migrate task is provided by ROM.
+
+    # Once it finishes, we want to dump the db structure:
+    Rake::Task["db:structure:dump"].execute
+
+    # And print the current migration version:
     Rake::Task["db:version"].execute
   end
 
