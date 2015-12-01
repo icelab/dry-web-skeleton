@@ -6,7 +6,7 @@ module TestHelpers
   end
 
   def app
-    Main::Application.app
+    AppPrototype::Application.app
   end
 
   def rom

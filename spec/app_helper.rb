@@ -10,7 +10,7 @@ Dir[SPEC_ROOT.join("shared/app/*.rb").to_s].each(&method(:require))
 
 require SPEC_ROOT.join("../core/boot").realpath
 
-Capybara.app = Main::Application.app
+Capybara.app = AppPrototype::Application.app
 Capybara.app_host = "http://localhost"
 Capybara.save_and_open_page_path = "#{File.dirname(__FILE__)}/../tmp/capybara-screenshot"
 Capybara.javascript_driver = :poltergeist
@@ -22,6 +22,6 @@ RSpec.configure do |config|
   config.include Rack::Test::Methods, Capybara::DSL, type: :feature
 
   config.before :suite do
-    Main::Application.freeze
+    AppPrototype::Application.freeze
   end
 end
