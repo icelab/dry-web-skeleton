@@ -62,8 +62,15 @@ GIT
       wisper (~> 1.6, >= 1.6.0)
 
 GIT
-  remote: https://github.com/solnic/rodakase
-  revision: f2d61c850c54225b959cacc5b93ebb2599c09994
+  remote: https://github.com/solnic/transproc
+  revision: dcd3f83bda5607ebb6ddf1f5dfe648ac0cfb2f86
+  specs:
+    transproc (0.4.0)
+
+GIT
+  remote: https://github.com/timriley/rodakase
+  revision: db6f6ad46df83f38d9489906ef71ab45858e326e
+  branch: null-view-parts
   specs:
     rodakase (0.0.1)
       dry-auto_inject (~> 0.1)
@@ -130,7 +137,7 @@ GEM
     dry-auto_inject (0.1.0)
     dry-configurable (0.1.2)
       thread_safe
-    dry-container (0.2.5)
+    dry-container (0.2.6)
       dry-configurable (= 0.1.2)
       thread_safe
     dry-data (0.0.1)

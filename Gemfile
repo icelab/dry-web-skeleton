@@ -4,7 +4,7 @@ ruby "2.2.3"
 
 # Web framework
 gem "puma"
-gem "rodakase", git: "https://github.com/solnic/rodakase"
+gem "rodakase", git: "https://github.com/timriley/rodakase", branch: "null-view-parts"
 gem "shotgun"
 
 # Database persistence
