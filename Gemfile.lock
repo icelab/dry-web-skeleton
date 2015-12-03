@@ -125,6 +125,8 @@ GEM
       thread_safe
     dry-equalizer (0.2.0)
     dry-pipeline (0.0.1)
+    either_result_matcher (0.1.0)
+      kleisli
     equalizer (0.0.11)
     ffi (1.9.10)
     formatador (0.2.5)
@@ -225,6 +227,7 @@ DEPENDENCIES
   database_cleaner
   dry-data!
   dry-validation!
+  either_result_matcher
   guard-rspec
   inflecto
   pg

@@ -19,6 +19,7 @@ gem "rom-support", git: "https://github.com/rom-rb/rom-support"
 gem "call_sheet", git: "https://github.com/icelab/call_sheet"
 gem "dry-data", git: "https://github.com/dryrb/dry-data"
 gem "dry-validation", git: "https://github.com/dryrb/dry-validation"
+gem "either_result_matcher"
 gem "slim"
 gem "transproc", git: "https://github.com/solnic/transproc"
 

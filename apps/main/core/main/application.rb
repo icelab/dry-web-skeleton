@@ -1,4 +1,5 @@
 require "rodakase/application"
+require "either_result_matcher/either_extensions"
 require_relative "container"
 
 module Main
