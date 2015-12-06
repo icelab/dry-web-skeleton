@@ -3,9 +3,12 @@ Bundler.setup
 
 require_relative "core/app_prototype/container"
 
-require "rspec/core/rake_task"
-RSpec::Core::RakeTask.new(:spec)
-task default: [:spec]
+begin
+  require "rspec/core/rake_task"
+  RSpec::Core::RakeTask.new(:spec)
+  task default: [:spec]
+rescue LoadError
+end
 
 require "rom/sql/rake_task"
 require "sequel"
@@ -40,11 +43,17 @@ namespace :db do
     end
   end
 
-  desc "Perform migration up to latest migration available"
-  task :migrate do
-    # The migrate task is provided by ROM.
+  task :check_migrations_exist do
+    unless Dir["db/migrate/*.rb"].any?
+      puts "No migrations found"
+      exit 1
+    end
+  end
 
-    # Once it finishes, we want to dump the db structure:
+  # Enhance the migration task provided by ROM
+  desc "Perform migration up to latest migration available"
+  task :migrate => [:check_migrations_exist] do
+    # Once db:migrate finishes, dump the db structure:
     Rake::Task["db:structure:dump"].execute
 
     # And print the current migration version:
@@ -67,5 +76,19 @@ namespace :db do
   task :sample_data do
     sample_data = File.join("db", "sample_data.rb")
     load(sample_data) if File.exist?(sample_data)
+  end
+end
+
+namespace :assets do
+  desc "Compile assets with webpack"
+  task :precompile do
+    Rake::Task["assets:clobber"].invoke
+    system "npm run build-production"
+  end
+
+  desc "Remove compiled assets"
+  task :clobber do
+    require "fileutils"
+    FileUtils.rm_rf("#{AppPrototype::Container.config.root}/public/assets")
   end
 end
