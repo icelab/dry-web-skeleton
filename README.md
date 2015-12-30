@@ -2,11 +2,11 @@
 
 ## Installation
 
-You can clone this skeleton using [Raygun](https://github.com/carbonfive/raygun):
+You can clone this skeleton using a (temporary) fork of [Raygun](https://github.com/carbonfive/raygun) (that properly renames directories):
 
 ```
-gem install raygun
-raygun -p icelab/rodakase-skeleton your-app-name
+gem install rraygun
+rraygun -p icelab/rodakase-skeleton your-app-name
 ```
 
 ## Development
