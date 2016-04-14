@@ -13,12 +13,6 @@ module Main
       ]
     end
 
-    # Copy global app config into place (needed to configure
-    # AppPrototype::Assets)
-    #
-    # TODO: make this nicer
-    config.options = AppPrototype::Container.options
-
     load_paths! "lib", "core"
   end
 end

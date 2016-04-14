@@ -2,6 +2,7 @@ require "bundler"
 Bundler.setup
 
 require_relative "core/app_prototype/container"
+AppPrototype::Container.boot! :config
 
 begin
   require "rspec/core/rake_task"
@@ -19,7 +20,7 @@ namespace :db do
 
   # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560
   Sequel.extension :migration
-  DB = Sequel.connect(AppPrototype::Container.options.database_url)
+  DB = Sequel.connect(AppPrototype::Container["config"].database_url)
 
   desc "Prints current schema version"
   task :version do

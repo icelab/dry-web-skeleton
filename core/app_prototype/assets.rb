@@ -8,13 +8,13 @@ module AppPrototype
     attr_reader :server_url
 
     def self.new(container = AppPrototype::Container)
-      precompiled = container.config.env == :production || container.options.precompiled_assets.to_s == "true"
+      precompiled = container.config.env == :production || container["config"].precompiled_assets
 
       super(
         root: container.config.root,
         precompiled: precompiled,
-        precompiled_host: container.options.precompiled_assets_host,
-        server_url: container.options.assets_server_url,
+        precompiled_host: container["config"].precompiled_assets_host,
+        server_url: container["config"].assets_server_url,
       )
     end
 
