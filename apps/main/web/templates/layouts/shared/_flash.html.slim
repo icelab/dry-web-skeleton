@@ -1,0 +1,8 @@
+- if page.flash?
+  .flash
+    - if page.flash[:notice]
+      .notice
+        p = page.flash[:notice]
+    - if page.flash[:alert]
+      .alert
+        p = page.flash[:alert]

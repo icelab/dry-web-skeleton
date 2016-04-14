@@ -1,6 +1,8 @@
+require "rack/csrf"
 require "dry/web/application"
 require "either_result_matcher/either_extensions"
 require_relative "container"
+require "roda_plugins"
 
 module Main
   class Application < Dry::Web::Application
@@ -13,14 +15,19 @@ module Main
 
     use Rack::Session::Cookie, key: "app_prototype.session", secret: AppPrototype::Container.options.session_secret
 
-    plugin :indifferent_params
+    use Rack::Csrf, raise: true
+
     plugin :flash
+    plugin :view
+    plugin :page
+
+    def name
+      :main
+    end
 
     route do |r|
       r.root do
-        r.resolve "main.views.home" do |home|
-          home.()
-        end
+        r.view "home"
       end
 
       r.multi_route
