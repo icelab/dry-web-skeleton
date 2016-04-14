@@ -1,21 +1,12 @@
-require 'main/container'
+require "dry-transaction"
 
-module Main
-  module Transactions
-    class Registrar
-      attr_reader :container
+require "app_prototype/transactions"
+require "main/container"
 
-      def initialize(container)
-        @container = container
-      end
-
-      def define(identifier, &block)
-        container.register(identifier, container[:transaction].define(&block))
-      end
-    end
-
-    def self.define(&block)
-      yield(Registrar.new(Container))
+module Admin
+  class Transactions < AppPrototype::Transactions
+    configure do |config|
+      config.container = Main::Container
     end
   end
 end
