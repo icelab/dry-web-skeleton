@@ -1,15 +1,20 @@
+require "sequel"
 require "rom"
-require "rom-repository"
+
+AppPrototype::Container.boot! :config
+
+Sequel.database_timezone = :utc
+Sequel.application_timezone = :local
 
 AppPrototype::Container.namespace "persistence" do |container|
-  ROM.use :auto_registration
-  ROM.setup :sql, container["config"].database_url
+  config = ROM::Configuration.new(:sql, container["config"].database_url, extensions: [:error_sql, :pg_array, :pg_json])
 
-  %w(relations commands).each do |type|
-    Dir[container.root.join("lib/persistence/#{type}/**/*.rb")].each(&method(:require))
+  container.register("config", config)
+
+  container.require("core/container/persistence")
+
+  container.finalize(:rom) do
+    config.auto_registration(container.root.join("lib/persistence"))
+    container.register("rom", ROM.container(config))
   end
-
-  container.register "rom", ROM.finalize.container
-
-  container.require "core/container/persistence"
 end
