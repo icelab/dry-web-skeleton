@@ -1,22 +1,19 @@
 require "slim"
-require "rodakase/view"
+require "dry-view"
 
 require "main/container"
 require "main/page"
 
-module Main
-  Container.register "page", Page.new(Container.config)
+require "app_prototype/assets"
 
-  class View < Rodakase::View::Layout
+module Main
+  Container.register "page", Page.new(assets: AppPrototype::Assets.new)
+
+  class View < Dry::View::Layout
     setting :root, Container.root.join("web/templates")
     setting :scope, Container["page"]
-    setting :engine, :slim
+    setting :formats, {html: :slim}
     setting :name, "application"
-
-    def locals(options)
-      # Temporary workaround for a rodakase bug, which fails to render if this hash is empty
-      {foo: "bar"}
-    end
 
     # Example of alternative layouts
     # class Admin < View

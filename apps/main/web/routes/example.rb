@@ -1,5 +1,5 @@
 module Main
-  class Application < Rodakase::Application
+  class Application < Dry::Web::Application
     route "example" do |r|
       # Routes go here
     end

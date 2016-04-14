@@ -4,7 +4,8 @@ ruby "2.2.3"
 
 # Web framework
 gem "puma"
-gem "rodakase", git: "https://github.com/timriley/rodakase", branch: "null-view-parts"
+gem "dry-component", git: "https://github.com/timriley/dry-component", branch: "import-containers-for-import-module" # temporary
+gem "dry-web", git: "https://github.com/dry-rb/dry-web", branch: "master"
 gem "shotgun"
 
 # Database persistence
