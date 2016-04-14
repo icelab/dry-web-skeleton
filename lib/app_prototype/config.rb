@@ -16,8 +16,6 @@ module AppPrototype
       path = root.join("config").join("#{name}.yml")
       yaml = File.exist?(path) ? YAML.load_file(path) : {}
 
-      # byebug
-
       config = schema.keys.inject({}) { |memo, key|
         value = ENV.fetch(
           key.to_s.upcase,

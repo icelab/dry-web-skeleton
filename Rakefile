@@ -1,6 +1,8 @@
 require "bundler"
 Bundler.setup
 
+require "byebug" unless ENV["RACK_ENV"] == "production"
+
 require_relative "core/app_prototype/container"
 AppPrototype::Container.boot! :config
 

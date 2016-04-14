@@ -1,3 +1,6 @@
+require "byebug" if ENV["RACK_ENV"] == "development"
+require "pry" if ENV["RACK_ENV"] == "development"
+
 require_relative "app_prototype/container"
 
 AppPrototype::Container.finalize! do |container|
