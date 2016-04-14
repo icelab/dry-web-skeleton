@@ -1,32 +1,53 @@
+require "open-uri"
+
 module AppPrototype
   class Assets
-    attr_reader :env
     attr_reader :root
+    attr_reader :precompiled
+    attr_reader :precompiled_host
     attr_reader :server_url
 
-    def initialize(env:, root:, server_url: nil)
-      @env = env
+    def self.new(container = AppPrototype::Container)
+      precompiled = container.config.env == :production || container.options.precompiled_assets.to_s == "true"
+
+      super(
+        root: container.config.root,
+        precompiled: precompiled,
+        precompiled_host: container.options.precompiled_assets_host,
+        server_url: container.options.assets_server_url,
+      )
+    end
+
+    def initialize(root:, precompiled:, precompiled_host: nil, server_url: nil)
       @root = root
+      @precompiled = precompiled
+      @precompiled_host = precompiled_host
       @server_url = server_url
     end
 
     def [](asset)
-      if precompiled?
+      if precompiled
         asset_path_from_manifest(asset)
       else
         asset_path_on_server(asset)
       end
     end
 
-    private
+    def read(asset)
+      path = self[asset]
 
-    def precompiled?
-      env == :production
+      if File.exist?(path)
+        File.read(path)
+      else
+        open(path, "r:UTF-8").read
+      end
     end
+
+    private
 
     def asset_path_from_manifest(asset)
       if (hashed_asset = manifest["assets"][asset])
-        "/assets/#{hashed_asset}"
+        "#{precompiled_host}/assets/#{hashed_asset}"
       end
     end
 

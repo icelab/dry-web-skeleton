@@ -7,7 +7,7 @@ require "main/page"
 require "app_prototype/assets"
 
 module Main
-  Container.register "page", Page.new(Container.config)
+  Container.register "page", Page.new(assets: AppPrototype::Assets.new)
 
   class View < Dry::View::Layout
     setting :root, Container.root.join("web/templates")
