@@ -1,6 +1,5 @@
 require "rack/csrf"
 require "dry/web/application"
-require "either_result_matcher/either_extensions"
 require_relative "container"
 require "roda_plugins"
 
