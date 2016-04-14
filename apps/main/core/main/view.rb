@@ -15,9 +15,8 @@ module Main
     setting :formats, {html: :slim}
     setting :name, "application"
 
-    # Example of alternative layouts
-    # class Admin < View
-    #   setting :name, "admin"
-    # end
+    def locals(options)
+      super.merge(options[:scope].view_locals)
+    end
   end
 end
