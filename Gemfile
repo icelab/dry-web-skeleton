@@ -18,10 +18,10 @@ gem "rom-sql", git: "https://github.com/rom-rb/rom-sql"
 gem "rom-support", git: "https://github.com/rom-rb/rom-support"
 
 # Application dependencies
+gem "dry-result_matcher"
 gem "dry-transaction"
 gem "dry-types"
 gem "dry-validation", git: "https://github.com/dryrb/dry-validation"
-gem "either_result_matcher"
 gem "slim"
 gem "transproc", git: "https://github.com/solnic/transproc"
 

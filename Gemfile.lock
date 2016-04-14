@@ -130,6 +130,8 @@ GEM
     dry-logic (0.2.2)
       dry-container (~> 0.2, >= 0.2.6)
       dry-equalizer (~> 0.2)
+    dry-result_matcher (0.3.0)
+      kleisli
     dry-transaction (0.6.0)
       dry-container (>= 0.2.8)
       kleisli
@@ -147,8 +149,6 @@ GEM
       dry-equalizer (~> 0.2)
       inflecto (~> 0)
       tilt (~> 2.0)
-    either_result_matcher (0.1.0)
-      kleisli
     equalizer (0.0.11)
     ffi (1.9.10)
     formatador (0.2.5)
@@ -245,11 +245,11 @@ DEPENDENCIES
   capybara-screenshot
   database_cleaner
   dry-component!
+  dry-result_matcher
   dry-transaction
   dry-types
   dry-validation!
   dry-web!
-  either_result_matcher
   guard-rspec
   inflecto
   pg
