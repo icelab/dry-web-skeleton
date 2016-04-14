@@ -1,12 +1,14 @@
-# Rodakase Skeleton
+# dry-web skeleton
+
+Build a Ruby web app with [dry-web](https://github.com/dry-rb/dry-web), [ROM](http://rom-rb.org/) and [Roda](http://roda.jeremyevans.net).
 
 ## Installation
 
-You can clone this skeleton using a (temporary) fork of [Raygun](https://github.com/carbonfive/raygun) (that properly renames directories):
+You can clone this skeleton using [Raygun](https://github.com/carbonfive/raygun):
 
 ```
-gem install rraygun
-rraygun -p icelab/rodakase-skeleton your-app-name
+gem install raygun
+rraygun -p icelab/dry-web-skeleton your-app-name
 ```
 
 ## Development
