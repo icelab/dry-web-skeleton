@@ -33,14 +33,6 @@ GIT
       dry-equalizer (~> 0.2)
 
 GIT
-  remote: https://github.com/icelab/call_sheet
-  revision: face0888b385af571d50a9bf8aa2f25be4be2c6a
-  specs:
-    call_sheet (0.3.2)
-      kleisli
-      wisper (>= 1.6.0)
-
-GIT
   remote: https://github.com/rom-rb/rom
   revision: 82a438f8427991af38ec9e9e516ff627068969cc
   specs:
@@ -166,7 +158,7 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     ice_nine (0.11.1)
     inflecto (0.0.2)
-    kleisli (0.2.6)
+    kleisli (0.2.7)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.3)
@@ -239,12 +231,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  call_sheet!
   capybara
   capybara-screenshot
   database_cleaner
   dry-component!
   dry-data!
+  dry-transaction
   dry-validation!
   dry-web!
   either_result_matcher
