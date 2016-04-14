@@ -1,6 +1,9 @@
 require_relative "app_prototype/container"
 
 AppPrototype::Container.finalize! do |container|
+  # Boot the app config before everything else
+  container.boot! :config
+
   require "logger"
   container.register(:logger, Logger.new(container.root.join("log/app.log")))
 end

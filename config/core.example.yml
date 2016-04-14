@@ -1,7 +1,0 @@
-development: &base
-  SESSION_SECRET: xxx
-  DATABASE_URL: 'postgres://localhost/app_prototype_development'
-  ASSETS_SERVER_URL: "http://localhost:1234"
-test:
-  <<: *base
-  DATABASE_URL: 'postgres://localhost/app_prototype_test'

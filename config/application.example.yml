@@ -1,0 +1,9 @@
+development: &base
+  session_secret: xxx
+  database_url: 'postgres://localhost/app_prototype_development'
+  assets_server_url: "http://localhost:1234"
+  precompiled_assets: false
+  precompiled_assets_host:
+test:
+  <<: *base
+  database_url: 'postgres://localhost/app_prototype_test'
