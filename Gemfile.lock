@@ -25,51 +25,56 @@ GIT
 
 GIT
   remote: https://github.com/rom-rb/rom
-  revision: 82a438f8427991af38ec9e9e516ff627068969cc
+  revision: 794d5d9649b7d6a76535e635095dc4f80394e8fa
   specs:
-    rom (1.0.0.beta1)
-      equalizer (~> 0.0, >= 0.0.9)
-      rom-mapper (~> 0.3.0.beta1)
-      rom-support (~> 1.0.0.beta1)
+    rom (1.0.0)
+      dry-equalizer (~> 0.2)
+      dry-types (~> 0.7)
+      rom-mapper (~> 0.3.0)
+      rom-support (~> 1.0.0)
 
 GIT
   remote: https://github.com/rom-rb/rom-mapper
-  revision: e07b7f5a89f0b57fcfe076f45ed729dec9e626ff
+  revision: 5fecb06bd0cdf227b9f0289c2870ebc4a88f0502
   specs:
-    rom-mapper (0.3.0.beta1)
-      equalizer (~> 0.0, >= 0.0.10)
-      rom-support (~> 1.0.0.beta1)
+    rom-mapper (0.3.0)
+      dry-equalizer (~> 0.2)
+      rom-support (~> 1.0.0)
+      transproc (~> 0.4.0)
 
 GIT
   remote: https://github.com/rom-rb/rom-repository
-  revision: 306bcc46dbd07e1332bc7236372f81bab3f1dfa5
+  revision: 7a3cc43d6539dba9a6ffb71c66501da23ddc6c11
   specs:
-    rom-repository (0.2.0.beta1)
+    rom-repository (0.2.0)
       anima (~> 0.2, >= 0.2)
-      rom (~> 1.0.0.beta1)
-      rom-mapper (~> 0.3.beta1)
-      rom-support (~> 1.0.0.beta1)
+      concurrent-ruby (~> 1.0)
+      rom (~> 1.0.0)
+      rom-mapper (~> 0.3.0)
+      rom-support (~> 1.0.0)
 
 GIT
   remote: https://github.com/rom-rb/rom-sql
-  revision: 0a17586961eb2d02d74e4b34d31f64ce3bf99d66
+  revision: 79001cfcc0a8beced7bd2675c16cddcf7b36684d
   specs:
-    rom-sql (0.7.0.beta1)
-      equalizer (~> 0.0, >= 0.0.9)
-      rom (~> 1.0.0.beta1)
+    rom-sql (0.7.0)
+      dry-equalizer (~> 0.2)
+      dry-types (~> 0.7)
+      rom (~> 1.0.0)
       sequel (~> 4.18)
 
 GIT
   remote: https://github.com/rom-rb/rom-support
-  revision: c0bdb013b1c4546038db4bec501303bf16eb42ad
+  revision: 31085bb9a02a68455f2a66dce1fa08fcfd937430
   specs:
-    rom-support (1.0.0.beta1)
+    rom-support (1.0.0)
+      dry-equalizer (~> 0.2)
       transproc (~> 0.4.0)
       wisper (~> 1.6, >= 1.6.0)
 
 GIT
   remote: https://github.com/solnic/transproc
-  revision: dcd3f83bda5607ebb6ddf1f5dfe648ac0cfb2f86
+  revision: ef7cbef5d22fffd53beadf5c28abdb4975a02c45
   specs:
     transproc (0.4.0)
 
@@ -166,7 +171,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    ice_nine (0.11.1)
+    ice_nine (0.11.2)
     inflecto (0.0.2)
     kleisli (0.2.7)
     launchy (2.4.3)
@@ -218,7 +223,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    sequel (4.28.0)
+    sequel (4.33.0)
     shellany (0.0.1)
     shotgun (0.9.1)
       rack (>= 1.0)
