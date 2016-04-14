@@ -1,3 +1,5 @@
+require "main/transactions"
+
 Main::Transactions.define do |t|
   # Define your dry-transaction objects here:
   #
