@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "2.2.3"
 
+gem "rake"
+
 # Web framework
 gem "puma"
 gem "dry-component", git: "https://github.com/timriley/dry-component", branch: "import-containers-for-import-module" # temporary

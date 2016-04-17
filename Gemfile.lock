@@ -205,6 +205,7 @@ GEM
       rack (>= 1.0)
     rack_csrf (2.5.0)
       rack (>= 1.1.0)
+    rake (11.1.1)
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -261,6 +262,7 @@ DEPENDENCIES
   pry-byebug
   puma
   rack_csrf
+  rake
   rom!
   rom-mapper!
   rom-repository!
