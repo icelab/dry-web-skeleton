@@ -12,6 +12,8 @@ module AppPrototype
     attribute :precompiled_assets, Types::Form::Bool # TODO: add .default(false) when dry-types allows it
     attribute :precompiled_assets_host, Types::String
 
+    attribute :bugsnag_api_key, Types::String
+
     def self.load(root, name, env)
       path = root.join("config").join("#{name}.yml")
       yaml = File.exist?(path) ? YAML.load_file(path) : {}

@@ -4,6 +4,7 @@ development: &base
   assets_server_url: "http://localhost:1234"
   precompiled_assets: false
   precompiled_assets_host:
+  bugsnag_api_key:
 test:
   <<: *base
   database_url: 'postgres://localhost/app_prototype_test'

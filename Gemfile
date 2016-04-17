@@ -27,6 +27,9 @@ gem "dry-validation", git: "https://github.com/dryrb/dry-validation"
 gem "slim"
 gem "transproc", git: "https://github.com/solnic/transproc"
 
+# 3rd party services
+gem "bugsnag"
+
 group :development, :test do
   gem "guard-rspec", require: false
   gem "pry-byebug"

@@ -3,15 +3,19 @@ Bundler.setup
 
 require "byebug" unless ENV["RACK_ENV"] == "production"
 
-require_relative "core/app_prototype/container"
-AppPrototype::Container.boot! :config
-
 begin
   require "rspec/core/rake_task"
-  RSpec::Core::RakeTask.new(:spec)
+  RSpec::Core::RakeTask.new :spec
   task default: [:spec]
 rescue LoadError
 end
+
+require_relative "core/app_prototype/container"
+AppPrototype::Container.boot! :config
+
+AppPrototype::Container.boot! :bugsnag
+require "bugsnag/rake"
+require "bugsnag/tasks"
 
 require "rom/sql/rake_task"
 require "sequel"

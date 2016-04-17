@@ -101,6 +101,8 @@ GEM
       abstract_type (~> 0.0.7)
       adamantium (~> 0.2)
       equalizer (~> 0.0.11)
+    bugsnag (2.8.12)
+      json (~> 1.7, >= 1.7.7)
     byebug (5.0.0)
       columnize (= 0.9.0)
     capybara (2.5.0)
@@ -173,6 +175,7 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     ice_nine (0.11.2)
     inflecto (0.0.2)
+    json (1.8.3)
     kleisli (0.2.7)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -247,6 +250,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bugsnag
   capybara
   capybara-screenshot
   database_cleaner
