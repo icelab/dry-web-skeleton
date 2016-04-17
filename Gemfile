@@ -19,6 +19,9 @@ gem "rom-repository", git: "https://github.com/rom-rb/rom-repository"
 gem "rom-sql", git: "https://github.com/rom-rb/rom-sql"
 gem "rom-support", git: "https://github.com/rom-rb/rom-support"
 
+# Background jobs
+gem "que"
+
 # Application dependencies
 gem "dry-equalizer"
 gem "dry-result_matcher"

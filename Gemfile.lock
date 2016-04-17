@@ -207,6 +207,7 @@ GEM
       byebug (~> 5.0)
       pry (~> 0.10)
     puma (2.14.0)
+    que (0.11.4)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -272,6 +273,7 @@ DEPENDENCIES
   postmark
   pry-byebug
   puma
+  que
   rack_csrf
   rake
   rom!
