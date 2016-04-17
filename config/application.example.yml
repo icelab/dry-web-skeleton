@@ -8,3 +8,5 @@ development: &base
 test:
   <<: *base
   database_url: 'postgres://localhost/app_prototype_test'
+production:
+  <<: *base

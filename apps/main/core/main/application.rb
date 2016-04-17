@@ -1,3 +1,4 @@
+require "bugsnag"
 require "rack/csrf"
 require "dry/web/application"
 require_relative "container"
@@ -13,10 +14,12 @@ module Main
     opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
 
     use Rack::Session::Cookie, key: "app_prototype.session", secret: AppPrototype::Container["config"].session_secret
-
     use Rack::Csrf, raise: true
+    use Bugsnag::Rack
 
+    plugin :error_handler
     plugin :flash
+
     plugin :view
     plugin :page
 
@@ -30,6 +33,16 @@ module Main
       end
 
       r.multi_route
+    end
+
+    error do |e|
+      Bugsnag.auto_notify e
+
+      if ENV["RACK_ENV"] == "production"
+        self.class["main.views.errors.error_500"].(scope: current_page)
+      else
+        raise e
+      end
     end
 
     load_routes!
