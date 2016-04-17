@@ -20,6 +20,7 @@ gem "rom-sql", git: "https://github.com/rom-rb/rom-sql"
 gem "rom-support", git: "https://github.com/rom-rb/rom-support"
 
 # Application dependencies
+gem "dry-equalizer"
 gem "dry-result_matcher"
 gem "dry-transaction"
 gem "dry-types"
@@ -30,6 +31,7 @@ gem "transproc", git: "https://github.com/solnic/transproc"
 
 # 3rd party services
 gem "bugsnag"
+gem "postmark"
 
 group :development, :test do
   gem "guard-rspec", require: false

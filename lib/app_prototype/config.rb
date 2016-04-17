@@ -12,7 +12,11 @@ module AppPrototype
     attribute :precompiled_assets, Types::Form::Bool # TODO: add .default(false) when dry-types allows it
     attribute :precompiled_assets_host, Types::String
 
+    attribute :app_mailer_from_email, Types::String
+
     attribute :bugsnag_api_key, Types::String
+
+    attribute :postmark_api_key, Types::String
 
     def self.load(root, name, env)
       path = root.join("config").join("#{name}.yml")
