@@ -11,8 +11,6 @@ AppPrototype::Container.namespace "persistence" do |container|
 
   container.register("config", config)
 
-  container.require("core/container/persistence")
-
   container.finalize(:rom) do
     config.auto_registration(container.root.join("lib/persistence"))
     container.register("rom", ROM.container(config))
