@@ -39,7 +39,12 @@ module Main
       Bugsnag.auto_notify e
 
       if ENV["RACK_ENV"] == "production"
-        self.class["main.views.errors.error_500"].(scope: current_page)
+        if e.is_a?(ROM::TupleCountMismatchError)
+          response.status = 404
+          self.class["main.views.errors.error_404"].(scope: current_page)
+        else
+          self.class["main.views.errors.error_500"].(scope: current_page)
+        end
       else
         raise e
       end
