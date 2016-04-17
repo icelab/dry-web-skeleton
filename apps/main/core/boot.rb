@@ -5,7 +5,7 @@ Main::Container.finalize! do |container|
   container.register(:enqueue, Main::Enqueue.new)
 
   container.auto_register! "lib/main/persistence/repositories" do |repo_class|
-    -> { repo_class.new(container["persistence.rom"]) }
+    -> { repo_class.new(container["core.persistence.rom"]) }
   end
 end
 
