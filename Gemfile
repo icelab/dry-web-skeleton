@@ -24,6 +24,7 @@ gem "dry-result_matcher"
 gem "dry-transaction"
 gem "dry-types"
 gem "dry-validation", git: "https://github.com/dryrb/dry-validation"
+gem "i18n"
 gem "slim"
 gem "transproc", git: "https://github.com/solnic/transproc"
 
