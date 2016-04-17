@@ -8,7 +8,7 @@ You can clone this skeleton using [Raygun](https://github.com/carbonfive/raygun)
 
 ```
 gem install raygun
-rraygun -p icelab/dry-web-skeleton your-app-name
+raygun -p icelab/dry-web-skeleton your-app-name
 ```
 
 ## Development
