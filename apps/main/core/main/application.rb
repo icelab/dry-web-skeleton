@@ -36,16 +36,16 @@ module Main
     end
 
     error do |e|
-      Bugsnag.auto_notify e
-
       if ENV["RACK_ENV"] == "production"
         if e.is_a?(ROM::TupleCountMismatchError)
           response.status = 404
           self.class["main.views.errors.error_404"].(scope: current_page)
         else
+          Bugsnag.auto_notify e
           self.class["main.views.errors.error_500"].(scope: current_page)
         end
       else
+        Bugsnag.auto_notify e
         raise e
       end
     end
