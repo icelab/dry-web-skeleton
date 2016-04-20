@@ -19,4 +19,3 @@ Dir.chdir(APP_ROOT) do
   system "RACK_ENV=development bundle exec rake db:migrate"
   system "RACK_ENV=test bundle exec rake db:migrate"
 end
-
