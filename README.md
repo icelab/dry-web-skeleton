@@ -31,6 +31,8 @@ It also integrates with these 3rd party services:
 [roda]: http://roda.jeremyevans.net/
 [rom]: http://rom-rb.org/
 
+**[Read the documentation](docs/)** to learn more about working with apps built from this skeleton.
+
 ## Installation
 
 Create an app from this skeleton using [Raygun](https://github.com/carbonfive/raygun):
