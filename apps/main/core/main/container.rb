@@ -7,9 +7,7 @@ module Main
       config.root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
 
       config.auto_register = %w[
-        lib/main/operations
-        lib/main/validation
-        lib/main/views
+        lib/main
       ]
     end
 
