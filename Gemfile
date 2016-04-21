@@ -7,7 +7,7 @@ gem "rake"
 # Web framework
 gem "puma"
 gem "dry-component", git: "https://github.com/timriley/dry-component", branch: "import-containers-for-import-module" # temporary
-gem "dry-web", git: "https://github.com/dry-rb/dry-web", branch: "master"
+gem "dry-web"
 gem "rack_csrf"
 gem "shotgun"
 
