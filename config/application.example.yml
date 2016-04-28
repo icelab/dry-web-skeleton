@@ -6,8 +6,10 @@ development: &base
   precompiled_assets_host:
   app_mailer_from_email:
   bugsnag_api_key:
+  postmark_api_key:
 test:
   <<: *base
   database_url: 'postgres://localhost/app_prototype_test'
+  postmark_api_key: 'POSTMARK_API_TEST'
 production:
   <<: *base
