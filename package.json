@@ -43,7 +43,7 @@
     "prebuild-development": "npm run clean-build",
     "build-development": "webpack --config ./assets/webpack-development.config.js",
     "prebuild-production": "npm run clean-build",
-    "build-production": "NODE_ENV=production webpack --config ./assets/webpack-production.config.js -p",
+    "build-production": "NODE_ENV=production webpack --config ./assets/webpack-production.config.js -p --bail",
     "postbuild-production": "npm run precompile"
   }
 }
