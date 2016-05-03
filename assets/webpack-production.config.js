@@ -50,6 +50,7 @@ function createEntries(entries, dir) {
  * Webpack configuration
  */
 module.exports = {
+
   // Set the context as the apps directory
   context: APPS_BASE,
 
@@ -68,7 +69,8 @@ module.exports = {
   // Plugin/loader specific-configuration
   plugins: [
     new webpack.DefinePlugin({
-      DEVELOPMENT: true
+      DEVELOPMENT: false,
+      'process.env.NODE_ENV': '"production"'
     }),
     new ExtractTextPlugin("[name].css", {
       allChunks: true
@@ -139,5 +141,4 @@ module.exports = {
       }
     ]
   }
-
 };
