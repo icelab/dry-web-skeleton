@@ -12,4 +12,4 @@ require("./index.js");
 // Require all images and CSS by default
 // This will inspect all subdirectories from the context (first param) and
 // require files matching the regex.
-require.context("..", true, /^\.\/.*\.(jpe?g|png|gif|svg)$/);
+require.context(".", true, /^\.\/.*\.(jpe?g|png|gif|svg)$/);

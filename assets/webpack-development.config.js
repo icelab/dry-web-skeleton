@@ -1,8 +1,19 @@
 var fs = require("fs");
+var glob = require("glob");
 var path = require("path");
 var webpack = require("webpack");
 var loadConfig = require("./config");
 
+/**
+ * General configuration
+ */
+var config  = loadConfig(path.join(__dirname, "config.yml"));
+var BASE      = path.join(__dirname, "..")
+var APPS_BASE = path.join(BASE, "/apps")
+var APPS      = glob.sync(APPS_BASE + "/*");
+var BUILD     = path.join(__dirname, "build");
+var DEVELOPMENT_HOST = config.ASSETS_DEVELOPMENT_SERVER_HOST || "localhost";
+var DEVELOPMENT_PORT = config.ASSETS_DEVELOPMENT_SERVER_PORT || 8080;
 
 /**
  * Custom webpack plugins
@@ -13,60 +24,29 @@ var WebpackNotifierPlugin = require("webpack-notifier");
 /**
  * PostCSS packages
  */
-
-var autoprefixer = require("autoprefixer-core");
 var cssimport = require("postcss-import");
-var cssnext = require("cssnext");
-
-/**
- * General configuration
- */
-var config  = loadConfig(path.join(__dirname, "config.yml"));
-var TARGETS = path.join(__dirname, "targets");
-var BUILD   = path.join(__dirname, "build");
-
-
-/**
- * isDirectory
- *
- * @param  {dir} file Check if the passed path is a directory
- * @return {Boolean}
- */
-function isDirectory(dir) {
-  return fs.lstatSync(dir).isDirectory();
-}
-
-
-/**
- * isFile
- *
- * @param  {string} file Check if the passed path is a file
- * @return {Boolean}
- */
-function isFile(file) {
-  return fs.lstatSync(file).isFile();
-}
-
+var cssnext = require("postcss-cssnext");
 
 /**
  * createEntries
  *
- * Iterate through the `TARGETS`, find any matching `target.js` files, and
+ * Iterate through the `APPS`, find any matching `target.js` files, and
  * return those as entry points for the webpack output.
  */
+
 function createEntries(entries, dir) {
-  if (isDirectory(path.join(TARGETS, dir))) {
-    // Prepend the webpack hot-loading contexts for the targets
-    var target = ["webpack-dev-server/client?http://localhost:8080", "webpack/hot/dev-server"];
-    var file = path.join(TARGETS, dir, "target.js");
-    try {
-      isFile(file);
-    } catch (e) {
-      return;
-    }
-    target.push(file);
-    entries[dir] = target;
-  }
+  var app = path.basename(dir);
+  var targets = glob.sync(dir + "/**/target.js");
+
+  targets.forEach(function(target) {
+    var targetName = path.basename(path.dirname(target));
+    entries[app + "__" + targetName] = [
+      "webpack-dev-server/client?http://localhost:8080",
+      "webpack/hot/dev-server",
+      target
+    ];
+  });
+
   return entries;
 }
 
@@ -80,6 +60,7 @@ var plugins = [
   new webpack.DefinePlugin({
     DEVELOPMENT: true
   }),
+  // Extract all CSS into static files
   new ExtractTextPlugin("[name].css", {
     allChunks: true
   })
@@ -97,12 +78,11 @@ if (config.DISABLE_ASSETS_NOTIFIER === undefined) {
  * Webpack configuration
  */
 module.exports = {
-
-  // Set proper context
-  context: TARGETS,
+  // Set the context as the apps directory
+  context: APPS_BASE,
 
   // Generate the `entry` points from the filesystem
-  entry: fs.readdirSync(TARGETS).reduce(createEntries, {}),
+  entry: APPS.reduce(createEntries, {}),
 
   // Configure output
   output: {
@@ -112,7 +92,7 @@ module.exports = {
     // Generate hashed names for production
     filename: "[name].js",
     // Ensure the publicPath matches the expected location in development
-    publicPath: "http://localhost:"+config.DEVELOPMENT_SERVER_PORT+"/assets/"
+    publicPath: "http://" + DEVELOPMENT_HOST + ":"+ DEVELOPMENT_PORT + "/assets/"
   },
 
   // Plugin definitions
@@ -127,23 +107,22 @@ module.exports = {
     eqnull: true,
     failOnHint: false
   },
-  postcss: function() {
+  postcss: function(webpack) {
     return {
       defaults: [
         cssimport({
-          // Add each @import as a dependency so the bundle is rebuilt
-          // when imported files change.
-          onImport: function (files) {
-            files.forEach(this.addDependency);
-          }.bind(this)
+          addDependencyTo: webpack
         }),
-        cssnext(),
-        autoprefixer
-      ],
-      cleaner:  [autoprefixer({ browsers: ["last 2 versions"] })]
+        cssnext()
+      ]
     };
   },
-
+  // Set the resolve paths for any shared code
+  resolve: {
+    alias: {
+      "shared": path.join(__dirname, "shared")
+    }
+  },
   // General configuration
   module: {
     preLoaders: [
