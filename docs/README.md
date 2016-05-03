@@ -39,3 +39,4 @@ It also integrates with these 3rd party services:
 * View rendering
 * Background jobs
 * Business transactions
+* [Assets](assets.md)
