@@ -72,6 +72,11 @@ module.exports = {
     }),
     new ExtractTextPlugin("[name].css", {
       allChunks: true
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
     })
   ],
 
@@ -84,6 +89,27 @@ module.exports = {
         cssnext()
       ]
     };
+  },
+
+  // Quiet the output
+  stats: {
+    assets:       false,
+    assetsSort:   false,
+    cached:       false,
+    children:     false,
+    chunkModules: false,
+    chunkOrigins: false,
+    chunks:       false,
+    chunksSort:   false,
+    colors:       true,
+    errorDetails: true,
+    hash:         false,
+    modules:      false,
+    modulesSort:  false,
+    reasons:      false,
+    source:       false,
+    timings:      false,
+    version:      false
   },
 
   // General configuration
