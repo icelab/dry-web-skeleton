@@ -98,7 +98,7 @@ module.exports = {
     assets:       false,
     assetsSort:   false,
     cached:       false,
-    children:     false
+    children:     false,
     chunkModules: false,
     chunkOrigins: false,
     chunks:       false,
