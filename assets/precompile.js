@@ -24,6 +24,8 @@ gulp.task("manifest:digest", function(cb) {
   console.log("Starting manifest:digest task");
   var stream = gulp.src(BUILD+"/**/*")
     .pipe(gulpRevAll({
+      quiet: true,
+      silent: true,
       transformFilename: function (file, hash) {
         var name;
         var ext = path.extname(file.path);

@@ -41,9 +41,9 @@
     "start": "node ./assets/development-server.js",
     "precompile": "node ./assets/precompile.js",
     "prebuild-development": "npm run clean-build",
-    "build-development": "./node_modules/.bin/webpack --config ./assets/webpack-development.config.js",
+    "build-development": "webpack --config ./assets/webpack-development.config.js",
     "prebuild-production": "npm run clean-build",
-    "build-production": "NODE_ENV=production ./node_modules/.bin/webpack --config ./assets/webpack-production.config.js -p",
+    "build-production": "NODE_ENV=production webpack --config ./assets/webpack-production.config.js -p --bail",
     "postbuild-production": "npm run precompile"
   }
 }

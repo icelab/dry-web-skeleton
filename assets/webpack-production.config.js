@@ -50,6 +50,7 @@ function createEntries(entries, dir) {
  * Webpack configuration
  */
 module.exports = {
+
   // Set the context as the apps directory
   context: APPS_BASE,
 
@@ -68,10 +69,16 @@ module.exports = {
   // Plugin/loader specific-configuration
   plugins: [
     new webpack.DefinePlugin({
-      DEVELOPMENT: true
+      DEVELOPMENT: false,
+      'process.env.NODE_ENV': '"production"'
     }),
     new ExtractTextPlugin("[name].css", {
       allChunks: true
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
     })
   ],
 
@@ -84,6 +91,27 @@ module.exports = {
         cssnext()
       ]
     };
+  },
+
+  // Quiet the output
+  stats: {
+    assets:       false,
+    assetsSort:   false,
+    cached:       false,
+    children:     false,
+    chunkModules: false,
+    chunkOrigins: false,
+    chunks:       false,
+    chunksSort:   false,
+    colors:       false,
+    errorDetails: true,
+    hash:         false,
+    modules:      false,
+    modulesSort:  false,
+    reasons:      false,
+    source:       false,
+    timings:      false,
+    version:      false
   },
 
   // General configuration
@@ -113,5 +141,4 @@ module.exports = {
       }
     ]
   }
-
 };
