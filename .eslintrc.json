@@ -1,0 +1,13 @@
+{
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [
+    "standard",
+    "react"
+  ]
+}

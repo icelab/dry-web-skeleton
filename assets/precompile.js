@@ -12,8 +12,8 @@ var runSequence = require("run-sequence");
 /**
  * General configuration
  */
-var BUILD = path.join(__dirname, "build");
-var DEST  = path.join(__dirname, "..", "public", "assets");
+var BUILD = path.join(__dirname, "build")
+var DEST  = path.join(__dirname, "..", "public", "assets")
 
 
 /**
@@ -27,16 +27,8 @@ gulp.task("manifest:digest", function(cb) {
       quiet: true,
       silent: true,
       transformFilename: function (file, hash) {
-        var name;
         var ext = path.extname(file.path);
-        var basename = path.basename(file.path, ext);
-        // Do NOT transform files beginning with `inline`
-        if (basename.match(/^inline/)) {
-          name = basename + ext;
-        } else {
-          name = basename + "-" + hash + ext;
-        }
-        return name;
+        return path.basename(file.path, ext) + "-" + hash + ext;
       }
     }))
     .pipe(gulp.dest(DEST))

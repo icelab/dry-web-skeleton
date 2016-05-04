@@ -29,15 +29,15 @@ var compiler = webpack(webpackConfig);
 var devServerOptions = {
   hot: true,
   quiet: false,
-  noInfo: true,
+  noInfo: false,
   publicPath: "/assets/",
   historyApiFallback: true,
   stats: {
     assets:       false,
     assetsSort:   false,
     cached:       false,
-    children:     false,
     chunkModules: false,
+    children:     false,
     chunkOrigins: false,
     chunks:       false,
     chunksSort:   false,
