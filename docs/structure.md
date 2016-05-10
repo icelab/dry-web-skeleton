@@ -4,7 +4,7 @@ This is a dry-web app, which means it consists of multiple [standalone component
 
 This skeleton breaks your application down into:
 
-1. A common "core" component, for managing databasse relations and exposing basic common functionality.
+1. A common "core" component, for managing database relations and exposing basic common functionality.
 2. Multiple sub-app components, for the various discrete parts of your application.
 
 The application starts with a vanilla `Roda` app ([source](/core/app_prototype/application.rb)) to explicitly mount each of your sub-apps onto their respective routes.
