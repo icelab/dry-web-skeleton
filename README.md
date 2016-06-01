@@ -17,7 +17,7 @@ It uses:
 It also integrates with these 3rd party services:
 
 * [Bugsnag][bugsnag] for error reporting
-* [Postmark][bugsnag] for email deliveries
+* [Postmark][postmark] for email deliveries
 
 [bugsnag]: https://bugsnag.com
 [dry-transaction]:  http://dry-rb.org/gems/dry-transaction
