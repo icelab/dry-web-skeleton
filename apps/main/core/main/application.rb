@@ -36,7 +36,7 @@ module Main
     end
 
     error do |e|
-      if ENV["RACK_ENV"] == "production"
+      if ENV["RACK_ENV"] != "development"
         if e.is_a?(ROM::TupleCountMismatchError)
           response.status = 404
           self.class["main.views.errors.error_404"].(scope: current_page)
