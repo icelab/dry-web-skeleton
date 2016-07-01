@@ -1,7 +1,7 @@
 require_relative "container"
 
 module AppPrototype
-  Import = AppPrototype::Container.import_module
+  Import = AppPrototype::Container::Inject.args
 
   auto_inject = Dry::AutoInject(AppPrototype::Container)
 

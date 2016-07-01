@@ -11,7 +11,6 @@ rescue LoadError
 end
 
 require_relative "component/app_prototype/container"
-AppPrototype::Container.boot! :config
 
 AppPrototype::Container.boot! :bugsnag
 require "bugsnag/rake"
@@ -26,7 +25,7 @@ namespace :db do
 
   # The following migration tasks are adapted from https://gist.github.com/kalmbach/4471560
   Sequel.extension :migration
-  DB = Sequel.connect(AppPrototype::Container["config"].database_url)
+  DB = Sequel.connect(AppPrototype::Container.settings.database_url)
 
   desc "Prints current schema version"
   task :version do

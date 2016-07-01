@@ -13,7 +13,7 @@ module Main
 
     opts[:root] = Pathname(__FILE__).join("../..").realpath.dirname
 
-    use Rack::Session::Cookie, key: "app_prototype.session", secret: AppPrototype::Container["config"].session_secret
+    use Rack::Session::Cookie, key: "app_prototype.session", secret: AppPrototype::Container.settings.session_secret
     use Rack::Csrf, raise: true
     use Bugsnag::Rack
 

@@ -8,8 +8,8 @@ Dir.chdir(APP_ROOT) do
   puts "== Installing dependencies =="
   system "bundle"
 
-  puts "== Initializing config =="
-  FileUtils.cp "config/application.example.yml", "config/application.yml" unless File.exist?("config/application.yml")
+  puts "== Initializing settings =="
+  FileUtils.cp "config/settings.example.yml", "config/settings.yml" unless File.exist?("config/settings.yml")
 
   puts "== Creating database =="
   system "createdb app_prototype_development || true"

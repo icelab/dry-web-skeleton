@@ -4,6 +4,8 @@ module Main
     import AppPrototype::Container
 
     configure do |config|
+      config.name = :main
+
       config.root = Pathname(__FILE__).join("../..").realpath.dirname.freeze
 
       config.auto_register = %w[

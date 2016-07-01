@@ -1,8 +1,8 @@
 # RSpec artifacts
 /spec/examples.txt
 
-# Local config
-/config/application.yml
+# Local settings
+/config/settings.yml
 
 # Asset artifacts
 /assets/build
