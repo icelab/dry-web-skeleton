@@ -1,11 +1,11 @@
 require "bugsnag"
 require "rack/csrf"
-require "dry/web/application"
+require "dry-web-roda"
 require_relative "container"
 require "roda_plugins"
 
 module Main
-  class Application < Dry::Web::Application
+  class Application < Dry::Web::Roda::Application
     configure do |config|
       config.routes = "web/routes".freeze
       config.container = Container

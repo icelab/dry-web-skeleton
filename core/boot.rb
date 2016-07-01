@@ -9,6 +9,6 @@ AppPrototype::Container.finalize! do |container|
 end
 
 app_paths = Pathname(__FILE__).dirname.join("../apps").realpath.join("*")
-Dir[app_paths].each { |f| require "#{f}/core/boot" }
+Dir[app_paths].each { |f| require "#{f}/component/boot" }
 
 require_relative "app_prototype/application"
