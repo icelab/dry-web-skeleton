@@ -10,7 +10,7 @@ begin
 rescue LoadError
 end
 
-require_relative "core/app_prototype/container"
+require_relative "component/app_prototype/container"
 AppPrototype::Container.boot! :config
 
 AppPrototype::Container.boot! :bugsnag
