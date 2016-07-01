@@ -4,7 +4,7 @@ We use [ROM](http://rom-rb.org) for working with the app’s Postgres database. 
 
 ## Setup
 
-ROM is set up [in a boot file](core/boot/rom.rb) in core app component. In this file, we:
+ROM is set up [in a boot file](component/boot/rom.rb) in core app component. In this file, we:
 
 * Configure ROM's underlying [Sequel](https://github.com/jeremyevans/sequel) SQL adapter, informing it about timezones, and enabling some plugins to make working with Postgresql better (e.g. having it show full error messages, and enabling support for working with array and JSON columns).
 * Configure ROM to use our app's `database_url`.
