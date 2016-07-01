@@ -1,7 +1,7 @@
 require "bugsnag"
 require "rack/csrf"
 require "dry-web-roda"
-require_relative "container"
+require "main/container"
 require "roda_plugins"
 
 module Main
