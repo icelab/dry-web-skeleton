@@ -1,4 +1,5 @@
 require "dry-transaction"
+require "dry-monads"
 
 require "app_prototype/transactions"
 require "main/container"
@@ -9,6 +10,7 @@ module Main
     class StepAdapters < Dry::Transaction::StepAdapters
       class Enqueue
         include Main::Import("enqueue")
+        include Dry::Monads::Either::Mixin
 
         def call(step, *args, input)
           enqueue.(step.operation_name, *args, input)
