@@ -1,5 +1,5 @@
 module Main
-  class Application < Dry::Web::Application
+  class Application
     route "example" do |r|
       # Routes go here
     end

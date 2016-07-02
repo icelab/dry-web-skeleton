@@ -16,7 +16,7 @@ module AppPrototype
     end
 
     def options
-      Container["config"]
+      Container.settings
     end
   end
 end

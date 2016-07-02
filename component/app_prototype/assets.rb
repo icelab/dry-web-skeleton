@@ -10,9 +10,9 @@ module AppPrototype
     def self.new(container = AppPrototype::Container)
       super(
         root: container.config.root,
-        precompiled: container["config"].precompiled_assets,
-        precompiled_host: container["config"].precompiled_assets_host,
-        server_url: container["config"].assets_server_url,
+        precompiled: container.settings.precompiled_assets,
+        precompiled_host: container.settings.precompiled_assets_host,
+        server_url: container.settings.assets_server_url,
       )
     end
 

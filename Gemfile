@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 
-ruby "2.2.3"
+ruby "2.3.0"
 
 gem "rake"
 
 # Web framework
 gem "puma"
-gem "dry-component", git: "https://github.com/timriley/dry-component", branch: "import-containers-for-import-module" # temporary
-gem "dry-web"
+gem "dry-web", "~> 0.2"
+gem "dry-web-roda", "~> 0.1"
 gem "rack_csrf"
 gem "shotgun"
 
@@ -24,10 +24,12 @@ gem "que"
 
 # Application dependencies
 gem "dry-equalizer"
+gem "dry-logic"
 gem "dry-result_matcher"
 gem "dry-transaction"
 gem "dry-types"
-gem "dry-validation", git: "https://github.com/dryrb/dry-validation"
+gem "dry-validation"
+gem "dry-view"
 gem "i18n"
 gem "slim"
 gem "transproc", git: "https://github.com/solnic/transproc"
