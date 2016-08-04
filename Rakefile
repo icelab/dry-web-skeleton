@@ -60,7 +60,9 @@ namespace :db do
   desc "Perform migration up to latest migration available"
   task :migrate => [:check_migrations_exist] do
     # Once db:migrate finishes, dump the db structure:
-    Rake::Task["db:structure:dump"].execute
+    if ENV["RACK_ENV"] != "production"
+      Rake::Task["db:structure:dump"].execute
+    end
 
     # And print the current migration version:
     Rake::Task["db:version"].execute
