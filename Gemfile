@@ -6,8 +6,8 @@ gem "rake"
 
 # Web framework
 gem "puma"
-gem "dry-web", "~> 0.2"
-gem "dry-web-roda", "~> 0.1"
+gem "dry-web", "~> 0.5"
+gem "dry-web-roda", "~> 0.4"
 gem "rack_csrf"
 gem "shotgun"
 
