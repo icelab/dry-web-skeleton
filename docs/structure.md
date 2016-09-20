@@ -18,5 +18,5 @@ Each sub-app, located in `apps/<sub_app>`, is a `Dry::Web::Roda::Application`, w
 
 Each sub-app imports the "core" component, which allows the sub-apps to share common logic and functionality. Right now, the core component is used for the following:
 
-* Booting application-wide sub-systems and integrations with 3rd party services (in `component/boot/`)
+* Booting application-wide sub-systems and integrations with 3rd party services (in `system/boot/`)
 * Setting up ROM for persistence and exposing the basic ROM commands and relations for the sub-apps to build upon with their own repositories ([learn more about the ROM setup here](rom.md))

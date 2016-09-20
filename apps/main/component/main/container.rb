@@ -1,6 +1,6 @@
 module Main
   class Container < Dry::Web::Container
-    require root.join("component/app_prototype/container")
+    require root.join("system/app_prototype/container")
     import AppPrototype::Container
 
     configure do |config|
