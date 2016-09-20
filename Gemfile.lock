@@ -1,54 +1,4 @@
 GIT
-  remote: https://github.com/rom-rb/rom
-  revision: adf9c2cec99f755ffadf2d61a3cbe0f6de98b287
-  specs:
-    rom (2.0.0)
-      concurrent-ruby (~> 1.0)
-      dry-equalizer (~> 0.2)
-      dry-types (~> 0.8)
-      rom-mapper (~> 0.4.0)
-      rom-support (~> 2.0)
-
-GIT
-  remote: https://github.com/rom-rb/rom-mapper
-  revision: 8ed21c1f361e5f189e9d83c4da4bec857e9a3cb3
-  specs:
-    rom-mapper (0.4.0)
-      dry-equalizer (~> 0.2)
-      rom-support (~> 2.0.0)
-      transproc (~> 0.4.0)
-
-GIT
-  remote: https://github.com/rom-rb/rom-repository
-  revision: 6bc447eb5447e7215f4e76ac42044e11695b0567
-  specs:
-    rom-repository (0.3.1)
-      rom (~> 2.0)
-      rom-mapper (~> 0.4)
-      rom-support (~> 2.0)
-
-GIT
-  remote: https://github.com/rom-rb/rom-sql
-  revision: 9ea3f06bd61a8db87ea7b71ebb9fc2bb75767f58
-  specs:
-    rom-sql (0.8.0)
-      dry-equalizer (~> 0.2)
-      dry-types (~> 0.8)
-      rom (~> 2.0)
-      rom-support (~> 2.0)
-      sequel (~> 4.25)
-
-GIT
-  remote: https://github.com/rom-rb/rom-support
-  revision: e76854b0dbd78c31414c05a1bd266c3769bb1f6b
-  specs:
-    rom-support (2.0.1)
-      concurrent-ruby (~> 1.0)
-      dry-equalizer (~> 0.2)
-      transproc (~> 0.4.0)
-      wisper (~> 1.6, >= 1.6.0)
-
-GIT
   remote: https://github.com/solnic/transproc
   revision: ffe27d1d807bac6a9a47c0778eef4b3344284fb1
   specs:
@@ -201,6 +151,31 @@ GEM
     roda (2.18.0)
       rack
     roda-flow (0.3.0)
+    rom (2.0.0)
+      concurrent-ruby (~> 1.0)
+      dry-equalizer (~> 0.2)
+      dry-types (~> 0.8)
+      rom-mapper (~> 0.4.0)
+      rom-support (~> 2.0)
+    rom-mapper (0.4.0)
+      dry-equalizer (~> 0.2)
+      rom-support (~> 2.0.0)
+      transproc (~> 0.4.0)
+    rom-repository (0.3.1)
+      rom (~> 2.0)
+      rom-mapper (~> 0.4)
+      rom-support (~> 2.0)
+    rom-sql (0.8.0)
+      dry-equalizer (~> 0.2)
+      dry-types (~> 0.8)
+      rom (~> 2.0)
+      rom-support (~> 2.0)
+      sequel (~> 4.25)
+    rom-support (2.0.0)
+      concurrent-ruby (~> 1.0)
+      dry-equalizer (~> 0.2)
+      transproc (~> 0.4.0)
+      wisper (~> 1.6, >= 1.6.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -264,16 +239,19 @@ DEPENDENCIES
   que
   rack_csrf
   rake
-  rom!
-  rom-mapper!
-  rom-repository!
-  rom-sql!
-  rom-support!
+  rom
+  rom-mapper
+  rom-repository
+  rom-sql
+  rom-support
   rspec
   shotgun
   site_prism
   slim
   transproc!
+
+RUBY VERSION
+   ruby 2.3.1p112
 
 BUNDLED WITH
    1.12.5

@@ -13,11 +13,11 @@ gem "shotgun"
 
 # Database persistence
 gem "pg"
-gem "rom", git: "https://github.com/rom-rb/rom"
-gem "rom-mapper", git: "https://github.com/rom-rb/rom-mapper"
-gem "rom-repository", git: "https://github.com/rom-rb/rom-repository"
-gem "rom-sql", git: "https://github.com/rom-rb/rom-sql"
-gem "rom-support", git: "https://github.com/rom-rb/rom-support"
+gem "rom"
+gem "rom-mapper"
+gem "rom-repository"
+gem "rom-sql"
+gem "rom-support"
 
 # Background jobs
 gem "que"
