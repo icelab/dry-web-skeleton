@@ -7,7 +7,7 @@ This skeleton breaks your application down into:
 1. A common "core" component, for managing database relations and exposing basic common functionality.
 2. Multiple sub-app components, for the various discrete parts of your application.
 
-The application starts with a vanilla `Roda` app ([source](/component/app_prototype/application.rb)) to explicitly mount each of your sub-apps onto their respective routes.
+The application starts with a vanilla `Roda` app ([source](/system/app_prototype/application.rb)) to explicitly mount each of your sub-apps onto their respective routes.
 
 Each sub-app, located in `apps/<sub_app>`, is a `Dry::Web::Roda::Application`, which means it provides the following:
 
