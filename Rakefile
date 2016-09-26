@@ -10,7 +10,7 @@ begin
 rescue LoadError
 end
 
-require_relative "component/app_prototype/container"
+require_relative "system/app_prototype/container"
 
 AppPrototype::Container.boot! :bugsnag
 require "bugsnag/rake"

@@ -1,23 +1,23 @@
 source "https://rubygems.org"
 
-ruby "2.3.0"
+ruby "2.3.1"
 
 gem "rake"
 
 # Web framework
 gem "puma"
-gem "dry-web", "~> 0.2"
-gem "dry-web-roda", "~> 0.1"
+gem "dry-web", "~> 0.5"
+gem "dry-web-roda", "~> 0.4"
 gem "rack_csrf"
 gem "shotgun"
 
 # Database persistence
 gem "pg"
-gem "rom", git: "https://github.com/rom-rb/rom"
-gem "rom-mapper", git: "https://github.com/rom-rb/rom-mapper"
-gem "rom-repository", git: "https://github.com/rom-rb/rom-repository"
-gem "rom-sql", git: "https://github.com/rom-rb/rom-sql"
-gem "rom-support", git: "https://github.com/rom-rb/rom-support"
+gem "rom"
+gem "rom-mapper"
+gem "rom-repository"
+gem "rom-sql"
+gem "rom-support"
 
 # Background jobs
 gem "que"

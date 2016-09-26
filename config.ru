@@ -1,2 +1,2 @@
-require_relative "component/boot"
+require_relative "system/boot"
 run AppPrototype::Application.freeze.app
