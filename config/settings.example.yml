@@ -1,7 +1,7 @@
 development: &base
   session_secret: xxx
   database_url: 'postgres://localhost/app_prototype_development'
-  assets_server_url: "http://localhost:1234"
+  assets_server_url: "http://localhost:8080"
   precompiled_assets: false
   precompiled_assets_host:
   app_mailer_from_email:
