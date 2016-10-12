@@ -15,13 +15,15 @@ module Main
 
     use Rack::Session::Cookie, key: "app_prototype.session", secret: AppPrototype::Container.settings.session_secret
     use Rack::Csrf, raise: true
+    use Rack::MethodOverride
     use Bugsnag::Rack
 
+    plugin :all_verbs
     plugin :error_handler
     plugin :flash
 
-    plugin :view
     plugin :page
+    plugin :view
 
     def name
       :main
