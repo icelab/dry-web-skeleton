@@ -23,5 +23,8 @@ module AppPrototype
     setting :bugsnag_api_key, Types::String
 
     setting :postmark_api_key, Types::String
+
+    setting :que_worker_count, Types::Form::Int.default(0)
+    setting :que_wake_interval, Types::Form::Float.default(0.1)
   end
 end

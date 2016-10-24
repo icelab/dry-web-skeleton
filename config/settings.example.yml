@@ -7,9 +7,13 @@ development: &base
   app_mailer_from_email:
   bugsnag_api_key:
   postmark_api_key:
+  que_worker_count: 1
+  que_wake_interval: 0.1
 test:
   <<: *base
   database_url: 'postgres://localhost/app_prototype_test'
   postmark_api_key: 'POSTMARK_API_TEST'
+  que_worker_count: 0
+  que_wake_interval: 0.1
 production:
   <<: *base

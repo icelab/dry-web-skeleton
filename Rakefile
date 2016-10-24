@@ -100,3 +100,30 @@ namespace :assets do
     FileUtils.rm_rf("#{AppPrototype::Container.config.root}/public/assets")
   end
 end
+
+require "que"
+namespace :que do
+  desc "Process Que's jobs using a worker pool"
+  task :work do
+    $stdout.puts "Starting Que's jobs..."
+    # # When changing how signals are caught, be sure to test the behavior with
+    # # the rake task in tasks/safe_shutdown.rb.
+
+    stop = false
+    %w(INT TERM).each do |signal|
+      trap(signal) { stop = true }
+    end
+
+    at_exit do
+      $stdout.puts "Finishing Que's current jobs before exiting..."
+      Que.worker_count = 0
+      Que.mode = :off
+      $stdout.puts "Que's jobs finished, exiting..."
+    end
+
+    loop do
+      sleep 0.01
+      break if stop
+    end
+  end
+end
