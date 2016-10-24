@@ -40,6 +40,7 @@ gem "postmark"
 
 group :development, :test do
   gem "guard-rspec", require: false
+  gem "foreman"
   gem "pry-byebug"
 end
 
