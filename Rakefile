@@ -100,3 +100,35 @@ namespace :assets do
     FileUtils.rm_rf("#{AppPrototype::Container.config.root}/public/assets")
   end
 end
+
+task :routes do
+  require "roda"
+  @app = Class.new(Roda)
+
+  # get a list of route files for all our apps
+  app_paths = Pathname(__FILE__).join("../apps").realpath.join("*")
+  routes = Dir.glob("#{app_paths}/web/routes/*.rb").join(" ")
+  system("roda-parse_routes -f routes.json #{routes}")
+
+  # load the route_list plugin
+  @app.plugin :route_list
+  routes = @app.route_list
+
+  # determine the max lengths of our output strings so we can display a nice list of routes
+  header_lengths = ["Name", "Methods", "URI Pattern"].map(&:length)
+  name_width, methods_width, path_width = widths(routes).zip(header_lengths).map(&:max)
+
+  # print a header
+  puts "#{"Name".rjust(name_width)} #{"Methods".ljust(methods_width)} #{"Path".ljust(path_width)}"
+
+  # print each of the routes
+  routes.map do |r|
+    puts "#{r[:name].to_s.rjust(name_width)} #{r[:methods].join(", ").ljust(methods_width)} #{r[:path].ljust(path_width)}"
+  end
+end
+
+def widths(routes)
+  [routes.map { |r| r[:name].length }.max || 0,
+    routes.map { |r| r[:methods].join(", ").length }.max || 0,
+    routes.map { |r| r[:path].length }.max || 0]
+end
