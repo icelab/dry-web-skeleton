@@ -151,6 +151,8 @@ GEM
     roda (2.18.0)
       rack
     roda-flow (0.3.0)
+    roda-route_list (2.0.0)
+      roda
     rom (2.0.0)
       concurrent-ruby (~> 1.0)
       dry-equalizer (~> 0.2)
@@ -239,6 +241,7 @@ DEPENDENCIES
   que
   rack_csrf
   rake
+  roda-route_list
   rom
   rom-mapper
   rom-repository

@@ -41,6 +41,7 @@ gem "postmark"
 group :development, :test do
   gem "guard-rspec", require: false
   gem "pry-byebug"
+  gem "roda-route_list"
 end
 
 group :test do
