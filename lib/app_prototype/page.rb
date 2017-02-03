@@ -27,7 +27,7 @@ module AppPrototype
     end
 
     def flash?
-      %w(notice alert).any? { |type| flash[type] }
+      %i(notice alert).any? { |type| flash[type] }
     end
 
     def with_flash(flash)
