@@ -8,6 +8,9 @@
 /assets/build
 /public/assets
 
+# Logs
+/log
+
 # Node
 /node_modules
 /npm-debug.log
