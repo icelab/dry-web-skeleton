@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.3.1"
+ruby "2.4.0"
 
 gem "rake"
 
@@ -13,11 +13,10 @@ gem "shotgun"
 
 # Database persistence
 gem "pg"
-gem "rom"
-gem "rom-mapper"
-gem "rom-repository"
-gem "rom-sql"
-gem "rom-support"
+gem "rom", "~> 3.0.0"
+gem "rom-mapper", "~> 0.5.0"
+gem "rom-repository", "~> 1.0.0"
+gem "rom-sql", "~> 1.0.0"
 
 # Background jobs
 gem "que"
@@ -32,7 +31,7 @@ gem "dry-validation"
 gem "dry-view"
 gem "i18n"
 gem "slim"
-gem "transproc", git: "https://github.com/solnic/transproc"
+gem "transproc"
 
 # 3rd party services
 gem "bugsnag"
