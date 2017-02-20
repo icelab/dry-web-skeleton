@@ -7,7 +7,10 @@ module AppPrototype
     end
 
     def view_locals
-      {csrf_tag: csrf_tag}
+      {
+        assets: assets,
+        csrf_tag: csrf_tag,
+      }
     end
 
     def csrf_metatag
